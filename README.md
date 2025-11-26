@@ -152,6 +152,12 @@ loss_plots/
 |--------------|---------|-----------|
 | ae_latent_4  | 0.1492  | 8.26      |
 
+## 🔍 Example Reconstruction (Best Model)
+
+**Model:** `ae_wide_64`
+
+![ae_wide_64 reconstruction](eval_outputs/ae_wide_64_before_after.png)
+
 ### Key Insights
 
 - Larger latent spaces → significantly better reconstruction quality  
