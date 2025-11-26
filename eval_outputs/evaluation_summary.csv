@@ -1,0 +1,11 @@
+model_name,checkpoint_path,mean_mse,psnr
+ae_baseline,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_baseline_2025-11-25_09-34-57.pt,0.031026577576994896,15.08266127135752
+ae_latent_64,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_latent_64_2025-11-25_09-34-27.pt,0.054891232401132584,12.604970184622733
+ae_latent_32,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_latent_32_2025-11-25_09-34-18.pt,0.0713522657752037,11.465922314064546
+ae_latent_16,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_latent_16_2025-11-25_09-34-17.pt,0.09684081375598907,10.139415698266408
+ae_latent_8,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_latent_8_2025-11-25_09-35-35.pt,0.12091755121946335,9.175106565872003
+ae_wide_32,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_wide_32_2025-11-25_09-34-21.pt,0.028813404962420464,15.404054168666741
+ae_wide_64,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_wide_64_2025-11-25_09-35-36.pt,0.028411345556378365,15.465081976789572
+ae_wide_32_latent_64,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_wide_32_latent_64_2025-11-25_09-34-22.pt,0.053672753274440765,12.702461259496465
+ae_wide_64_latent_16,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_wide_64_latent_16_2025-11-25_09-27-01.pt,0.09010027348995209,10.45273890763481
+ae_latent_4,/home/ML_courses/03683533_2025/yonatan_uri_reshit/yonatan/models/ae_latent_4_2025-11-25_09-26-56.pt,0.1492157131433487,8.26185441125214

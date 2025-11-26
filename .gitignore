@@ -1,0 +1,33 @@
+# === Ignore model checkpoints ===
+models/*.pt
+
+# === Ignore training logs ===
+logs/*.pt
+
+# === Ignore loss/output images (optional) ===
+loss_plots/*.png
+eval_outputs/*.png
+
+# === Ignore datasets ===
+*.jpg
+*.jpeg
+*.png
+*.pt
+dataset/
+data/
+FFHQ/
+*/dataset/*
+
+# === Ignore Python cache ===
+__pycache__/
+*.pyc
+
+# === Ignore slurm logs ===
+*.out
+*.err
+training_output.txt
+training_error.txt
+
+# === Ignore OS files ===
+.DS_Store
+Thumbs.db
