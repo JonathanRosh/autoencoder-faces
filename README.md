@@ -1,134 +1,175 @@
-🧠 Autoencoder for Face Reconstruction (FFHQ Dataset)
+# Autoencoder for Face Reconstruction (FFHQ Dataset)
 
-This project implements and compares 10 convolutional autoencoder architectures trained on a 256×256 subset of the FFHQ face dataset.
+This project implements and compares 10 convolutional autoencoder architectures trained on a 256×256 subset of the FFHQ face dataset.  
 The goal is to understand how changes in latent dimensionality and channel width affect reconstruction quality.
 
-All models were trained on a CUDA GPU using PyTorch, and evaluated using both quantitative metrics and visual reconstructions.
+All models were trained on a CUDA GPU using PyTorch and evaluated using both quantitative metrics and visual reconstructions.
 
-🚀 Features
+---
 
-10 Autoencoder variants (different latent sizes + channel widths)
+## 🚀 Features
 
-GPU-accelerated training (CUDA)
+- 10 Autoencoder variants (different latent sizes + channel widths)
+- GPU-accelerated training (CUDA)
+- Training/validation split: first **1,000 images = validation**
+- Loss metric: **MSE**
+- Evaluation metrics: **Mean MSE**, **PSNR**
+- Visual comparisons: “Before vs After”
+- Loss curve plots for each model
+- Training history saved for every model
+- Clean, modular project structure
 
-Training/validation split: first 1,000 images = validation
+---
 
-Loss metric: MSE
+## 📁 Project Structure
 
-Evaluation metrics:
-
-Mean MSE
-
-PSNR
-
-Visual comparisons: “Before vs After”
-
-Loss curve plots
-
-Training history saved for each model
-
-Clean, well-structured codebase
-
-🏗 Project Structure
+```
 autoencoder_project/
 │
-├── config.py              # all hyperparameters + model variants
-├── model.py               # convolutional autoencoder class
-├── train.py               # training loop + dataloaders + history logging
-├── main.py                # trains a single model end-to-end
-├── evaluate.py            # evaluate a model + compute PSNR + save image grids
-├── evaluate_all.py        # evaluate all models and export CSV summary
-├── plot_losses.py         # generate loss curves from logs
+├── config.py              # Hyperparameters + model configs
+├── model.py               # Autoencoder architecture
+├── train.py               # Training loop + dataloaders
+├── main.py                # Train a single model end-to-end
+├── evaluate.py            # Evaluate one model + save images
+├── evaluate_all.py        # Evaluate all models + write summary CSV
+├── plot_losses.py         # Generate loss curves from logs
 │
-├── models/                # saved checkpoints (.pt)
-├── logs/                  # training histories
-├── eval_outputs/          # before/after images + evaluation_summary.csv
-├── loss_plots/            # loss curves for each model
+├── models/                # Trained model checkpoints (.pt)
+├── logs/                  # Training history files
+├── eval_outputs/          # Before/after reconstructions + summary
+├── loss_plots/            # Loss curve plots
 │
 └── README.md
+```
 
-🔧 Installation & Setup
+---
+
+## 🛠 Installation & Setup
+
+Clone the repository:
+
+```bash
 git clone https://github.com/YOUR_USERNAME/autoencoder-faces.git
 cd autoencoder-faces
-pip install -r requirements.txt   # (optional, if you create one)
+```
 
+(Optional) Install dependencies:
 
-This project is written for Python 3.8+ and PyTorch with CUDA.
+```bash
+pip install -r requirements.txt
+```
 
-🏋️ Training a Model
+Requirements:
 
-Train any model by name:
+- Python 3.8+
+- PyTorch with CUDA enabled
 
+---
+
+## 🧠 Training a Model
+
+Train a model variant:
+
+```bash
 python main.py --model-name ae_latent_64
+```
 
+Models are saved under:
 
-All checkpoints are saved automatically into:
-
+```
 models/
+```
+
+Training histories (for plotting loss curves) are saved under:
+
+```
 logs/
+```
 
-📊 Evaluating a Model
+---
 
-Run evaluation + visual outputs:
+## 📊 Evaluating a Model
 
+Evaluate one model:
+
+```bash
 python evaluate.py --model-name ae_latent_64
+```
 
+This produces:
 
-This will produce:
+- Mean MSE  
+- PSNR  
+- A before/after image grid  
 
-a grid image of 16 original/reconstructed pairs
+Saved in:
 
-printed metrics (MSE + PSNR)
-
-Visuals are stored in:
-
+```
 eval_outputs/
+```
 
-📈 Evaluate All Models
+---
 
-To evaluate all 10 models at once:
+## 📈 Evaluate All Models at Once
 
+```bash
 python evaluate_all.py
+```
 
+Creates:
 
-This generates:
-
+```
 eval_outputs/evaluation_summary.csv
+```
 
-📉 Plot Loss Curves
+---
+
+## 📉 Plot Loss Curves
+
+```bash
 python plot_losses.py
+```
 
+Plots stored in:
 
-Outputs go to:
-
+```
 loss_plots/
+```
 
-📝 Results (Summary)
+---
 
-Best performing model:
+## ⭐ Results Summary
 
-Model name	MSE	PSNR (dB)
-ae_wide_64	0.0284	15.47
+### Best Model (Highest PSNR)
 
-Worst performing:
+| Model      | MSE     | PSNR (dB) |
+|------------|---------|-----------|
+| ae_wide_64 | 0.0284  | 15.47     |
 
-Model name	MSE	PSNR (dB)
-ae_latent_4	0.1492	8.26
+### Worst Model (Tiny Latent)
 
-Reconstruction quality strongly correlates with:
+| Model        | MSE     | PSNR (dB) |
+|--------------|---------|-----------|
+| ae_latent_4  | 0.1492  | 8.26      |
 
-wider networks → better detail
+### Key Insights
 
-larger latent dimensions → fewer artifacts
+- Larger latent spaces → significantly better reconstruction quality  
+- Wider networks (more channels) → sharper and more detailed outputs  
+- Ultra-compressed models → blurry faces + identity loss  
+- Training loss > validation loss due to batch noise (BatchNorm)  
 
-tiny latent spaces → blurry, low-detail reconstructions
+---
 
-📄 Project Report
+## 👤 Authors
 
-A full academic-style PDF explaining the architecture, experiments, and results is included.
+- **Yonatan Rosh**
+- **Uri Ben Dor**
+- **Reshit Carmel**
 
-👥 Authors
+---
 
-Yonatan Rosh
-Uri Ben Dor
-Reshit Carmel
+## 📄 License
+
+MIT License — feel free to use or modify.
+
